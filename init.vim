@@ -41,7 +41,7 @@ let g:dein#install_process_timeout = 300
 if dein#load_state(s:dein_cache_dir)
 	call dein#begin(s:dein_cache_dir)
 
-	let s:toml_dir = g:config_home . '/dein'
+	let s:toml_dir = g:config_home . '/nvim/plugins'
 
 	call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
 	call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
