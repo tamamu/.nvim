@@ -40,6 +40,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('scrooloose/nerdtree')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
   call dein#add('scrooloose/nerdcommenter')
+  call dein#add('leafgarland/typescript-vim')
   call dein#add('terryma/vim-multiple-cursors')
   call dein#add('w0rp/ale')
   call dein#add('autozimu/LanguageClient-neovim', {
