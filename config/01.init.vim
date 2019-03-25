@@ -46,6 +46,9 @@ set wildmenu wildmode=list:longest,full
 set history=100
 set visualbell t_vb=
 set noerrorbells
+" スペルチェック
+setlocal spell
+set spelllang=en,cjk
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
