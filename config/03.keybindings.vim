@@ -23,6 +23,22 @@ nnoremap , w
 nnoremap < W
 nnoremap . e
 
+" 候補移動
+nnoremap m N
+nnoremap z n
+
+" ESCでハイライトを消す
+nnoremap <esc><esc> :noh<CR>
+
+" カーソルキー無効化
+nnoremap <left> <Nop>
+nnoremap <up> <Nop>
+nnoremap <down> <Nop>
+nnoremap <right> <Nop>
+
+" Exモード無効化
+nnoremap Q <Nop>
+
 " ペイン操作
 nnoremap <leader>\| :<C-u>vs<CR>
 nnoremap <leader>- :<C-u>sp<CR>
