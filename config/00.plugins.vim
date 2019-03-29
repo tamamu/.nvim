@@ -32,6 +32,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add(s:dein_repo_dir)
 
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('tpope/vim-obsession')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('delphinus/lightline-delphinus') "Lightline config
   call dein#add('itchyny/lightline.vim')
