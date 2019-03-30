@@ -13,9 +13,9 @@ nnoremap ; :
 " 移動に関する操作をDvorak=>Qwertyにマップ
 noremap h h
 noremap H ^
-noremap t j
+noremap t gj
 noremap T J
-noremap n k
+noremap n gk
 noremap N K
 noremap s l
 noremap S $
@@ -58,6 +58,12 @@ noremap <F10> :NERDTree<CR>
 noremap <C-k> :NERDTree<CR>
 " close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" 一文字削除でレジスタに保存しない
+nnoremap x "_x
+
+" 全選択コピー
+nnoremap <C-a> ggVGy<C-o><C-o>
 
 " 貼り付け
 nnoremap <expr><silent> p getregtype() ==# 'V' ? 'p' : 'P'
