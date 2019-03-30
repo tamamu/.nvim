@@ -37,6 +37,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('delphinus/lightline-delphinus') "Lightline config
   call dein#add('itchyny/lightline.vim')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('habamax/vim-asciidoctor')
   call dein#add('rakr/vim-one')
   call dein#add('scrooloose/nerdtree')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
@@ -45,11 +47,13 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('lervag/vimtex')
   call dein#add('terryma/vim-multiple-cursors')
   call dein#add('edkolev/tmuxline.vim')
+  call dein#add('NLKNguyen/papercolor-theme')
   call dein#add('w0rp/ale')
   call dein#add('autozimu/LanguageClient-neovim', {
         \ 'rev': 'next',
         \ 'build': 'bash install.sh',
         \ })
+  call dein#add('tyru/eskk.vim')
 
   call dein#end()
   call dein#save_state()
