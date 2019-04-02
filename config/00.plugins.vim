@@ -10,7 +10,7 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-let s:dein_cache_dir = g:cache_home . '/dein/'
+let s:dein_cache_dir = g:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
 if &runtimepath !=# '/dein.vim'
@@ -29,7 +29,7 @@ let g:dein#install_process_timeout = 300
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
-  call dein#add(s:dein_repo_dir)
+  "call dein#add(s:dein_repo_dir)
 
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('tpope/vim-obsession')
@@ -44,6 +44,9 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('scrooloose/nerdtree')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
   call dein#add('scrooloose/nerdcommenter')
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('racer-rust/vim-racer')
+  "call dein#add('sebastianmarkow/deoplete-rust')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('lervag/vimtex')
   call dein#add('terryma/vim-multiple-cursors')
