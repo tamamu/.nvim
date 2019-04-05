@@ -1,6 +1,7 @@
 let g:LanguageClient_serverCommands = {
             \ 'rust': ['rustup', 'run', 'nightly-2018-12-06', 'rls'],
             \ 'typescript': ['typescript-language-server', '--stdin'],
+            \ 'cpp': ['clangd'],
             \ }
 let g:LanguageClient_autoStart = 1
 "let g:LanguageClient_rootMarkers = {
