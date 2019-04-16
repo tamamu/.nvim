@@ -9,3 +9,94 @@ int main() {
 	return 0;
 }
 endsnippet
+
+global !p
+
+_type_table = {
+	'i': 'int',
+	'f': 'float',
+	'l': 'll',
+	'c': 'char',
+	's': 'string'
+}
+def add_decl(snip, is_vec, typech, namech, lench):
+	if is_vec:
+		if lench != '':
+			snip.expand_anon('vector<{}> {}({});\n'.format(_type_table[typech], namech, lench))
+			snip.expand_anon("for (ll j=0; j < {}; ++j) cin >> {}[j];\n".format(lench, namech))
+		else:
+			snip.expand_anon('vector<{}> {};\n'.format(_type_table[typech], namech))
+	else:
+		snip.expand_anon('{} {}; cin >> {};\n'.format(_type_table[typech], namech, namech))
+
+def create_character_variables(snip):
+	pat = snip.buffer[snip.line].strip()
+
+	snip.buffer[snip.line] = ""
+	is_vec = False
+	typech = ''
+	namech = ''
+	lench = ''
+	cpos = 0
+	for idx, ch in enumerate(pat):
+		if ch == '-':
+			if idx != 0:
+				add_decl(snip, is_vec, typech, namech, lench)
+			is_vec = False
+			typech = ''
+			namech = ''
+			lench = ''
+			cpos = 0
+			continue
+		else:
+			if cpos == 0:
+				if ch == 'v':
+					is_vec = True
+				else:
+					typech = ch
+			elif cpos == 1:
+				if is_vec:
+					typech = ch
+				else:
+					namech = ch
+			elif cpos == 2 and is_vec:
+				namech = ch
+			elif cpos == 3 and is_vec:
+				lench = ch
+			cpos += 1
+	add_decl(snip, is_vec, typech, namech, lench)
+endglobal
+
+post_jump "create_character_variables(snip)"
+snippet "cin((-v?[iflcs][a-zA-Z][a-zA-Z0-9]?)+)" "variables from stdin" br
+`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet for "for (0..N)" b
+for (${1:int} j; j < ${2:N}; ++j) {
+	$3
+}
+endsnippet
+
+snippet foreach "for (x in X)" b
+for (${1:int} x: ${2:X}) {
+	$3
+}
+endsnippet
+
+snippet yorn "Output Yes or No" b
+cout << (${1:flag} ? "Yes" : "No") << endl;
+endsnippet
+
+snippet Yorn "Output YES or NO" b
+cout << (${1:flag} ? "YES" : "NO") << endl;
+endsnippet
+
+snippet switch "Template for switch" b
+switch (${1:x}) {
+	case $2:
+	break;
+	default:
+	break;
+}
+endsnippet
