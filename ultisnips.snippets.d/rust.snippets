@@ -1,0 +1,16 @@
+snippet modtest "Create tests module" b
+#[cfg(test)]
+mod tests {
+	#[test]
+	fn ${1:test_fn}() {
+		$2
+	}
+}
+endsnippet
+
+snippet test "Create test function" b
+#[test]
+fn ${1:test_fn}() {
+	$2
+}
+endsnippet

@@ -3,17 +3,6 @@ if !has('gui_running')
   set t_Co=256
 endif
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
-      \ },
-      \ 'component': {
-      \   'helloworld': 'Hello, world!'
-      \ },
-      \ }
-
 
 let g:lightline_delphinus_use_powerline_glyphs = 1
 let g:lightline_delphinus_use_nerd_fonts_glyphs = 1

@@ -4,3 +4,5 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+let g:NERDTreeMapOpenInTab = "<C-t>"

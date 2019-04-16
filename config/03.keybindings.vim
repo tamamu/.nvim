@@ -11,17 +11,17 @@ vnoremap <C-h> <esc>
 nnoremap ; :
 
 " 移動に関する操作をDvorak=>Qwertyにマップ
-nnoremap h h
-nnoremap H ^
-nnoremap t j
-nnoremap T J
-nnoremap n k
-nnoremap N K
-nnoremap s l
-nnoremap S $
-nnoremap , w
-nnoremap < W
-nnoremap . e
+noremap h h
+noremap H ^
+noremap t gj
+noremap T J
+noremap n gk
+noremap N K
+noremap s l
+noremap S $
+noremap , w
+noremap < W
+noremap . e
 
 " 候補移動
 nnoremap m N
@@ -59,6 +59,12 @@ noremap <C-k> :NERDTree<CR>
 " close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" 一文字削除でレジスタに保存しない
+nnoremap x "_x
+
+" 全選択コピー
+nnoremap <C-a> ggVGy<C-o><C-o>
+
 " 貼り付け
 nnoremap <expr><silent> p getregtype() ==# 'V' ? 'p' : 'P'
 nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
@@ -68,6 +74,9 @@ nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 
 " 補完
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" スペルチェック
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " keybindings for language client
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
