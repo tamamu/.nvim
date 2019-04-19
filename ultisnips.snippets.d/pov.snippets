@@ -1,0 +1,16 @@
+snippet template "Pov-Ray template" b
+#include "colors.inc"
+
+camera {
+	location <1, 6, 0.87>
+	look_at <1, 0, 0.87>
+}
+
+light_source {
+	<1, 5, 0.83> color White
+}
+plane {
+	<0, 1, 0>, -1
+	pigment { checker Black White }
+}
+endsnippet
