@@ -1,6 +1,6 @@
 let g:LanguageClient_serverCommands = {
             \ 'rust': ['rustup', 'run', 'nightly-2018-12-06', 'rls'],
-            \ 'typescript': ['typescript-language-server', '--stdin'],
+            \ 'typescript': ['typescript-language-server', '--stdio'],
             \ 'cpp': ['clangd'],
             \ 'python': ['pyls'],
             \ }
