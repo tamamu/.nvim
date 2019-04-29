@@ -1,3 +1,29 @@
+
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
+'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
+'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(
+            i for i in reversed(synstackids)
+            if i in texIgnoreMathZoneIds or i in texMathZoneIds
+        )
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
+
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
 
@@ -372,18 +398,32 @@ endsnippet
 # \ddot{$1}$0
 # endsnippet
 
+context "math()"
 snippet sq "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}} $0
 endsnippet
 
+context "math()"
+snippet pl "+" iA
++
+endsnippet
+
+context "math()"
+snippet ms "-" iA
+-
+endsnippet
+
+context "math()"
 snippet sr "^2" iA
 ^2
 endsnippet
 
+context "math()"
 snippet cb "^3" iA
 ^3
 endsnippet
 
+context "math()"
 snippet td "to the ... power" iA
 ^{$1}$0
 endsnippet
@@ -557,6 +597,10 @@ endsnippet
 
 snippet mcal "mathcal" iA
 \mathcal{$1}$0
+endsnippet
+
+snippet rm "rm" wA
+\rm{$1}$0
 endsnippet
 
 # snippet unit "unit vector" iA
