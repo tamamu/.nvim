@@ -3,6 +3,7 @@ let g:LanguageClient_serverCommands = {
             \ 'typescript': ['typescript-language-server', '--stdio'],
             \ 'cpp': ['clangd'],
             \ 'python': ['pyls'],
+            \ 'elixir': ['~/Tutorial/elixir-ls/release/language_server.sh'],
             \ }
 let g:LanguageClient_autoStart = 1
 "let g:LanguageClient_rootMarkers = {
