@@ -23,6 +23,10 @@ noremap , w
 noremap < W
 noremap . e
 
+" 入力中のカーソル操作
+inoremap <s-left> <esc>^i
+inoremap <s-right> <esc>$a
+
 " 候補移動
 nnoremap m N
 nnoremap z n
