@@ -92,3 +92,6 @@ nnoremap <silent> gf :call LanguageClient_textDocument_codeAction()<CR>
 
 " ALE
 nmap <F8> <Plug>(ale_fix)
+
+" TODO FIXME をquickfixで一覧
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
