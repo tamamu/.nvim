@@ -17,3 +17,7 @@ let g:ale_rust_rls_config = {
   \   'clippy_preference': 'on'
   \   }
   \ }
+
+let g:ale_linters = {
+  \ 'javascript': ['flow']
+  \ }
