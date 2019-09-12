@@ -41,6 +41,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('delphinus/lightline-delphinus') "Lightline config
   call dein#add('itchyny/lightline.vim')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('jiangmiao/auto-pairs') " close corresponds symbol
   call dein#add('thinca/vim-quickrun')
   call dein#add('habamax/vim-asciidoctor')
   call dein#add('rakr/vim-one')
