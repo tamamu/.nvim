@@ -67,3 +67,6 @@ endif
 
 set background=dark
 colorscheme one
+"Set same background color to terminal's
+call one#highlight('Normal', '', 'none', 'none')
+call one#highlight('LineNr', '', 'none', 'none')
