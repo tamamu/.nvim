@@ -27,3 +27,27 @@ fn main() {
 	$5
 }
 endsnippet
+
+snippet derive "derive block" b
+#[derive($1)]
+endsnippet
+
+snippet pubst "public struct" b
+pub struct $1 {
+	$2
+}
+endsnippet
+
+snippet impl "impl" b
+impl $1 {
+	$2
+}
+endsnippet
+
+snippet fnnew "fn new()" b
+fn new($1) -> Self {
+	Self {
+		$2
+	}
+}
+endsnippet
