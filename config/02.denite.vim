@@ -5,6 +5,7 @@ nmap <C-c> [denite]
 nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -start-filter file file:new<CR>
 nnoremap <silent> [denite]r :<C-u>Denite -start-filter -vertical-preview file/rec<CR>
 nnoremap <silent> [denite]l :<C-u>Denite -start-filter line<CR>
+nnoremap <silent> [denite]g :<C-u>DeniteProjectDir -buffer-name=grep -start-filter grep:::!<CR>
 
 
 autocmd FileType denite call s:denite_my_settings()
@@ -25,9 +26,16 @@ endfunction
 
 if executable('rg')
   call denite#custom#var('grep', 'command', ['rg'])
+  call denite#custom#var('grep', 'default_opts',
+			\ ['-i', '--vimgrep', '--no-heading'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+	call denite#custom#var('grep', 'separator', ['--'])
+	call denite#custom#var('grep', 'final_opts', [])
 endif
 call denite#custom#option('default', 'matcher', 'matcher/cpsm')
 call denite#custom#var('file/rec', 'matchers', ['matcher/cpsm', 'matcher_ignore_globs'])
+call denite#custom#var('grep', 'matcher', 'matcher/cpsm')
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
   \ [
   \ '.git/',
