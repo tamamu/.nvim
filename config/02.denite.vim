@@ -35,7 +35,7 @@ if executable('rg')
 endif
 call denite#custom#option('default', 'matcher', 'matcher/cpsm')
 call denite#custom#var('file/rec', 'matchers', ['matcher/cpsm', 'matcher_ignore_globs'])
-call denite#custom#var('grep', 'matcher', 'matcher/cpsm')
+call denite#custom#var('grep', 'matcher', ['matcher/cpsm', 'matcher_ignore_globs'])
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
   \ [
   \ '.git/',
