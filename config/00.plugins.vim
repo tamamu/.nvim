@@ -31,49 +31,107 @@ if dein#load_state(s:dein_cache_dir)
 
   "call dein#add(s:dein_repo_dir)
 
+  """""" Dark Power
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/denite.nvim')
+  """"""""""
+
+  """"""" Matcher
+  """ for CtrlP (fuzzy finder)
   " yay -S boost cmake
   " cd ~/.config/dein/repos/nixprime/cpsm && PY3=ON ./install.sh
   call dein#add('nixprime/cpsm') " matcher for denite
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('tpope/vim-obsession')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('delphinus/lightline-delphinus') "Lightline config
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('jiangmiao/auto-pairs') " close corresponds symbol
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('habamax/vim-asciidoctor')
-  call dein#add('rakr/vim-one')
-  call dein#add('ujihisa/tabpagecolorscheme')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('dart-lang/dart-vim-plugin')
-  call dein#add('othree/html5.vim')
-  call dein#add('digitaltoad/vim-pug')
-  call dein#add('posva/vim-vue')
-  call dein#add('rust-lang/rust.vim')
-  call dein#add('elixir-editors/vim-elixir')
+  """"""""""
+
+  """"""" Formatter
+  """ for clang-format
+  " yay -S clang
+  call dein#add('rhysd/vim-clang-format')
+  """ for racer (Rust formatter)
+  " rustup toolchain add nightly
+  " cargo +nightly install racer
+  " rustup component add rust-src
+  " export RUST_SRC_PATH
   call dein#add('racer-rust/vim-racer')
-  call dein#add('dbgx/lldb.nvim')
-  "call dein#add('sebastianmarkow/deoplete-rust')
-  call dein#add('junegunn/goyo.vim')
-  call dein#add('mattn/emmet-vim')
+  """"""""""
+
+  """"""" Language Support
+  """ HTML5
+  call dein#add('othree/html5.vim')
+  """ Pug (indent based HTML template engine)
+  call dein#add('digitaltoad/vim-pug')
+  """ Vue.js
+  call dein#add('posva/vim-vue')
+  """ Rust
+  call dein#add('rust-lang/rust.vim')
+  """ Elixir
+  call dein#add('elixir-editors/vim-elixir')
+  """ Dart
+  call dein#add('dart-lang/dart-vim-plugin')
+  """ TypeScript
   call dein#add('leafgarland/typescript-vim')
+  """ JSX
   call dein#add('peitalin/vim-jsx-typescript')
-  call dein#add('rhysd/vim-grammarous')
+  """ TeX
   call dein#add('lervag/vimtex')
-  call dein#add('SirVer/ultisnips')
-  call dein#add('terryma/vim-multiple-cursors')
+  """ Asciidoc
+  call dein#add('habamax/vim-asciidoctor')
+  """ Natural Language
+  call dein#add('rhysd/vim-grammarous')
+  """"""""""
+
+  """""" Look and Feel
+  """ Icons for neardtree
+  call dein#add('ryanoasis/vim-devicons')
+  """ Lightline
+  call dein#add('itchyny/lightline.vim')
+  """ Lightline config
+  call dein#add('delphinus/lightline-delphinus')
+  """ Syntax highlight for nerdtree
+  call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+  """ Lightline theme generator for collaboration with tmux
   call dein#add('edkolev/tmuxline.vim')
+  """ Set colorscheme on each tabs (Tcolorscheme command)
+  call dein#add('ujihisa/tabpagecolorscheme')
+  """ Colorscheme
   call dein#add('NLKNguyen/papercolor-theme')
+  """ Colorscheme
+  call dein#add('rakr/vim-one')
+  """"""""""
+
+  """""" Editor Feature
+  """ Show git diff
+  call dein#add('airblade/vim-gitgutter')
+  """ File manager
+  call dein#add('scrooloose/nerdtree')
+  """ Easy comment key bindings
+  call dein#add('scrooloose/nerdcommenter')
+  """ [UNMAINTAINED] LLDB Neovim Frontend
+  call dein#add('dbgx/lldb.nvim')
+  """ Close corresponds symbol
+  call dein#add('jiangmiao/auto-pairs')
+  """ Expand snippet
+  call dein#add('SirVer/ultisnips')
+  """ Expand abbreviations of HTML (Suggestion: snippets for Ultisnips)
+  call dein#add('mattn/emmet-vim')
+  """ Multiple cursors like Sublime Text
+  call dein#add('terryma/vim-multiple-cursors')
+  """ Zen mode
+  call dein#add('junegunn/goyo.vim')
+  """ QuickRun command
+  call dein#add('thinca/vim-quickrun')
+  """ SKK (Input Method Engine)
+  call dein#add('tyru/eskk.vim')
+  """ Session file
+  call dein#add('tpope/vim-obsession')
+  """ LSP client
   call dein#add('w0rp/ale')
+  """ LSP client
   call dein#add('autozimu/LanguageClient-neovim', {
         \ 'rev': 'next',
         \ 'build': 'bash install.sh',
         \ })
-  call dein#add('tyru/eskk.vim')
+  """"""""""
 
   call dein#end()
   call dein#save_state()
