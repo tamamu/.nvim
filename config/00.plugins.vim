@@ -53,6 +53,10 @@ if dein#load_state(s:dein_cache_dir)
   " rustup component add rust-src
   " export RUST_SRC_PATH
   call dein#add('racer-rust/vim-racer')
+  """ for prettier
+  call dein#add('prettier/vim-prettier', {
+        \ 'build': 'yarn install'
+        \ })
   """"""""""
 
   """"""" Language Support
