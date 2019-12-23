@@ -82,6 +82,10 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " スペルチェック
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
+" インクリメント・デクリメント
+nnoremap <silent> + <C-a>
+nnoremap <silent> - <C-x>
+
 " keybindings for language client
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -94,4 +98,4 @@ nnoremap <silent> gf :call LanguageClient_textDocument_codeAction()<CR>
 nmap <F8> <Plug>(ale_fix)
 
 " TODO FIXME をquickfixで一覧
-command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+command! Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
