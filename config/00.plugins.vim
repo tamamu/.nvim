@@ -82,6 +82,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('habamax/vim-asciidoctor')
   """ Natural Language
   call dein#add('rhysd/vim-grammarous')
+  """ Doxygen
+  call dein#add('vim-scripts/DoxygenToolkit.vim')
   """"""""""
 
   """""" Look and Feel
