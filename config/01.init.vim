@@ -49,6 +49,9 @@ set noerrorbells
 " スペルチェック
 setlocal spell
 set spelllang=en,cjk
+" floating window透明度
+set pumblend=20
+
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.

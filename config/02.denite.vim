@@ -5,7 +5,7 @@ nmap <C-c> [denite]
 nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -start-filter file file:new<CR>
 nnoremap <silent> [denite]r :<C-u>Denite -start-filter -vertical-preview file/rec<CR>
 nnoremap <silent> [denite]l :<C-u>Denite -start-filter line<CR>
-nnoremap <silent> [denite]g :<C-u>DeniteProjectDir -buffer-name=grep -start-filter grep:::!<CR>
+nnoremap <silent> [denite]g :<C-u>DeniteProjectDir -start-filter grep:::!<CR>
 
 
 autocmd FileType denite call s:denite_my_settings()
@@ -33,6 +33,15 @@ if executable('rg')
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
 endif
+let s:denite_win_width_percent = 0.85
+let s:denite_win_height_percent = 0.7
+call denite#custom#option('default', {
+  \ 'split': 'floating',
+  \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+  \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+  \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+  \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+  \ })
 call denite#custom#option('default', 'matcher', 'matcher/cpsm')
 call denite#custom#var('file/rec', 'matchers', ['matcher/cpsm', 'matcher_ignore_globs'])
 call denite#custom#var('grep', 'matcher', ['matcher/cpsm', 'matcher_ignore_globs'])
