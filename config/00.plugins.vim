@@ -74,6 +74,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('dart-lang/dart-vim-plugin')
   """ TypeScript
   call dein#add('leafgarland/typescript-vim')
+  """ PureScript
+  call dein#add('purescript-contrib/purescript-vim')
   """ JSX
   call dein#add('peitalin/vim-jsx-typescript')
   """ TeX

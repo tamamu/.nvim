@@ -200,7 +200,7 @@ else:
 `$2
 endsnippet
 
-snippet dm "Math" wA
+snippet dm "Math" b
 \[
 ${1:${VISUAL}}
 \] $0
@@ -239,7 +239,7 @@ snippet ar "Array" b
 endsnippet
 
 
-snippet // "Fraction" iA
+snippet // "Fraction" i
 \\frac{$1}{$2}$0
 endsnippet
 
@@ -307,11 +307,11 @@ snippet != "equals" iA
 endsnippet
 
 
-snippet ceil "ceil" iA
+snippet ceil "ceil" i
 \left\lceil $1 \right\rceil $0
 endsnippet
 
-snippet floor "floor" iA
+snippet floor "floor" i
 \left\lfloor $1 \right\rfloor$0
 endsnippet
 
@@ -768,11 +768,11 @@ snippet ~~ "~" iA
 \sim 
 endsnippet
 
-snippet star "star" iA
+snippet star "star" i
 ^\star 
 endsnippet
 
-snippet set "set" iA
+snippet set "set" i
 \\{$1\\} $0
 endsnippet
 
@@ -780,7 +780,7 @@ snippet || "mid" iA
  \mid 
 endsnippet
 
-snippet cc "subset" iA
+snippet cc "subset" i
 \subset 
 endsnippet
 
@@ -909,16 +909,16 @@ snippet "([a-zA-Z])bar" "bar" riA
 endsnippet
 
 priority 10
-snippet "hat" "hat" riA
+snippet "hat" "hat" ri
 \hat{$1}$0
 endsnippet
 
 priority 100
-snippet "([a-zA-Z])hat" "hat" riA
+snippet "([a-zA-Z])hat" "hat" ri
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet binom "binomial" iA
+snippet binom "binomial" i
 \binom{$1}{$2}$0
 endsnippet
 
