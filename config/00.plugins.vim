@@ -86,6 +86,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('rhysd/vim-grammarous')
   """ Doxygen
   call dein#add('vim-scripts/DoxygenToolkit.vim')
+  """ Common Lisp
+  call dein#add('vlime/vlime', {'rtp': 'vim/'})
   """"""""""
 
   """""" Look and Feel
@@ -105,6 +107,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('NLKNguyen/papercolor-theme')
   """ Colorscheme
   call dein#add('rakr/vim-one')
+  """ Show cursor jumping
+  call dein#add('edluffy/specs.nvim')
   """"""""""
 
   """""" Editor Feature
@@ -115,7 +119,7 @@ if dein#load_state(s:dein_cache_dir)
   """ Easy comment key bindings
   call dein#add('scrooloose/nerdcommenter')
   """ [UNMAINTAINED] LLDB Neovim Frontend
-  call dein#add('dbgx/lldb.nvim')
+  " call dein#add('dbgx/lldb.nvim')
   """ Close corresponds symbol
   call dein#add('jiangmiao/auto-pairs')
   """ Expand snippet
@@ -131,7 +135,7 @@ if dein#load_state(s:dein_cache_dir)
   """ SKK (Input Method Engine)
   call dein#add('tyru/eskk.vim')
   """ Session file
-  call dein#add('tpope/vim-obsession')
+  " call dein#add('tpope/vim-obsession')
   """ LSP client
   call dein#add('w0rp/ale')
   """ LSP client
@@ -139,6 +143,8 @@ if dein#load_state(s:dein_cache_dir)
         \ 'rev': 'next',
         \ 'build': 'bash install.sh',
         \ })
+  """ EasyMotion like jump
+  call dein#add('phaazon/hop.nvim', { 'rev': 'pre-extmarks'  })
   """"""""""
 
   call dein#end()
