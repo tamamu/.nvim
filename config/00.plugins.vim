@@ -121,7 +121,7 @@ if dein#load_state(s:dein_cache_dir)
   """ [UNMAINTAINED] LLDB Neovim Frontend
   " call dein#add('dbgx/lldb.nvim')
   """ Close corresponds symbol
-  call dein#add('jiangmiao/auto-pairs')
+  " call dein#add('jiangmiao/auto-pair')
   """ Expand snippet
   call dein#add('SirVer/ultisnips')
   """ Expand abbreviations of HTML (Suggestion: snippets for Ultisnips)
@@ -145,6 +145,10 @@ if dein#load_state(s:dein_cache_dir)
         \ })
   """ EasyMotion like jump
   call dein#add('phaazon/hop.nvim', { 'rev': 'pre-extmarks'  })
+  """ Edit S-expression easily
+  call dein#add('eraserhd/parinfer-rust', { 'build': 'cargo build --release' })
+  """ Show keybindings in popup
+  call dein#add('liuchengxu/vim-which-key')
   """"""""""
 
   call dein#end()

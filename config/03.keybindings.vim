@@ -77,7 +77,7 @@ nnoremap <expr><silent> P getregtype() ==# 'V' ? 'P' : 'p'
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 
 " 補完
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " スペルチェック
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

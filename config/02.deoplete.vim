@@ -17,6 +17,8 @@ call deoplete#custom#option({
 call deoplete#custom#var('file', 'enable_buffer_path', 1)
 let g:deoplete_max_list = 10000
 
+autocmd FileType lisp call deoplete#custom#buffer_option('auto_complete', v:false)
+
 " disable autocomplete by default
 "let b:deoplete_disable_auto_complete=1
 "let g:deoplete_disable_auto_complete=1

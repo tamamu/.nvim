@@ -9,6 +9,8 @@ set ruler
 set encoding=utf-8
 scriptencoding utf-8
 
+" vim-which-keyの表示までのタイムアウト
+set timeoutlen=200
 " 行番号表示
 set number
 " 行折り返さない
