@@ -88,6 +88,8 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('vim-scripts/DoxygenToolkit.vim')
   """ Common Lisp
   call dein#add('vlime/vlime', {'rtp': 'vim/'})
+  """ Wasm
+  call dein#add('rhysd/vim-wasm')
   """"""""""
 
   """""" Look and Feel
