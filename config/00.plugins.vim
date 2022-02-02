@@ -95,6 +95,8 @@ if dein#load_state(s:dein_cache_dir)
   """""" Look and Feel
   """ Icons for neardtree
   call dein#add('ryanoasis/vim-devicons')
+  """ Icons (required by Octo.nvim)
+  call dein#add('kyazdani42/nvim-web-devicons')
   """ Lightline
   call dein#add('itchyny/lightline.vim')
   """ Lightline config
@@ -151,6 +153,13 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('eraserhd/parinfer-rust', { 'build': 'cargo build --release' })
   """ Show keybindings in popup
   call dein#add('liuchengxu/vim-which-key')
+  """ Fuzzy finder (required by octo.nvim) {
+  call dein#add('nvim-lua/popup.nvim')
+  call dein#add('nvim-lua/plenary.nvim')
+  call dein#add('nvim-telescope/telescope.nvim')
+  """ }
+  """ GitHub
+  call dein#add('pwntester/octo.nvim')
   """"""""""
 
   call dein#end()
