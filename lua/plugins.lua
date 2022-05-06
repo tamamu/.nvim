@@ -9,9 +9,11 @@ return require('packer').startup({function()
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+        plugins = {
+          presets = {
+            z = false,
+          }
+        }
       }
     end
   }
@@ -132,11 +134,31 @@ return require('packer').startup({function()
     end
   }
 
-  -- buffer line: https://github.com/akinsho/bufferline.nvim
+  -- telescope image previewer for only linux: https://github.com/nvim-telescope/telescope-media-files.nvim
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- telescope emoji picker: https://github.com/nvim-telescope/telescope-symbols.nvim
+  use 'nvim-telescope/telescope-symbols.nvim'
+
+
+  -- calendar for telekasten: https://github.com/renerocksai/calendar-vim
+  use 'renerocksai/calendar-vim'
+
+  -- note taking: https://github.com/renerocksai/telekasten.nvim
   use {
-    'akinsho/bufferline.nvim',
-    tag = "*",
-    requires = 'kyazdani42/nvim-web-devicons'
+    'renerocksai/telekasten.nvim'
+  }
+
+  -- -- tabline: https://github.com/akinsho/bufferline.nvim
+  -- use {
+  --   'akinsho/bufferline.nvim',
+  --   tag = "*",
+  --   requires = 'kyazdani42/nvim-web-devicons'
+  -- }
+  -- tabline: https://github.com/romgrk/barbar.nvim
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
   }
 
   -- colorscheme: https://github.com/EdenEast/nightfox.nvim
@@ -196,6 +218,7 @@ return require('packer').startup({function()
       require('neo-tree').setup {
         use_default_mappings = false,
         close_if_last_window = true,
+        enable_git_status = true,
         mapping_options = {
           noremap = true,
           nowait = true,
@@ -238,7 +261,9 @@ return require('packer').startup({function()
   -- fuzzy finder: https://github.com/nvim-telescope/telescope.nvim
   use {
     'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-telescope/telescope-media-files.nvim' },
     config = function()
+      require('telescope').load_extension('media_files')
       require('telescope').setup{
         defaults = {
           previewer = true,
@@ -369,8 +394,11 @@ return require('packer').startup({function()
   -- locking a buffer to a window: https://github.com/stevearc/stickybuf.nvim
   use 'stevearc/stickybuf.nvim'
 
-  -- delete buffer without fix window layout: https://github.com/famiu/bufdelete.nvim
-  use 'famiu/bufdelete.nvim'
+  -- -- delete buffer without fix window layout: https://github.com/famiu/bufdelete.nvim
+  -- use 'famiu/bufdelete.nvim'
+
+  -- close buffer: https://github.com/moll/vim-bbye
+  use 'moll/vim-bbye'
 
   -- keep buffer proportion when resized window: https://github.com/kwkarlwang/bufresize.nvim
   use {
