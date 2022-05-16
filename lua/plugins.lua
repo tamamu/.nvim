@@ -4,6 +4,9 @@ return require('packer').startup({function()
   -- package manager: https://github.com/wbthomason/packer.nvim
   use 'wbthomason/packer.nvim'
 
+  -- startup time optimization: https://github.com/lewis6991/impatient.nvim
+  use 'lewis6991/impatient.nvim'
+
   -- which key: https://github.com/folke/which-key.nvim
   use {
     "folke/which-key.nvim",
@@ -89,7 +92,8 @@ return require('packer').startup({function()
   -- use {
   --   'sunjon/shade.nvim',
   --   config = function()
-  --     require'sphade'.setup{
+  --     require'shade'.setup{
+  --       overlay_opacity = 30,
   --       toggle = '<leader>s'
   --     }
   --   end
@@ -114,6 +118,9 @@ return require('packer').startup({function()
     }
   }
 
+  -- Find and Replace: https://github.com/brooth/far.vim
+  use 'brooth/far.vim'
+
   -- devicons: https://github.com/kyazdani42/nvim-web-devicons
   use 'kyazdani42/nvim-web-devicons'
 
@@ -124,7 +131,14 @@ return require('packer').startup({function()
   }
 
   -- fancy notification: https://github.com/rcarriga/nvim-notify
-  use 'rcarriga/nvim-notify'
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      require('notify').setup{
+        stages = 'slide'
+      }
+    end
+  }
 
   -- command palette: https://github.com/mrjones2014/legendary.nvim
   use {
@@ -169,6 +183,9 @@ return require('packer').startup({function()
       vim.cmd('colorscheme nightfox')
     end
   }
+
+  -- wakatime: https://github.com/wakatime/vim-wakatime
+  use 'wakatime/vim-wakatime'
 
   -- auto session: https://github.com/rmagatti/auto-session
   use {
@@ -338,14 +355,22 @@ return require('packer').startup({function()
   -- customizable finder: https://github.com/kevinhwang91/nvim-hlslens
   use 'kevinhwang91/nvim-hlslens'
 
-  -- scrollbar: https://github.com/petertriho/nvim-scrollbar
+  -- scrollbar: https://github.com/dstein64/nvim-scrollview
   use {
-    'petertriho/nvim-scrollbar',
+    'dstein64/nvim-scrollview',
     config = function()
-      require('scrollbar').setup()
-      require('scrollbar.handlers.search').setup()
+      require('scrollview').setup{
+        excluded_filetypes = {'neo_tree'},
+        current_only = false,
+        winblend = 25
+      }
     end
   }
+
+  -- highlight line number: https://github.com/IMOKURI/line-number-interval.nvim
+  -- use {
+  --   'IMOKURI/line-number-interval.nvim'
+  -- }
 
   -- dot repeat: https://github.com/tpope/vim-repeat
   use 'tpope/vim-repeat'
@@ -356,14 +381,8 @@ return require('packer').startup({function()
   -- easy motion (customizable f-move): use 'ggandor/lightspeed.nvim'
   use 'ggandor/lightspeed.nvim'
 
-  -- startup screen: https://github.com/goolord/alpha-nvim
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-  }
+  -- accelerated-jk: https://github.com/rainbowhxch/accelerated-jk.nvim
+  use { 'rainbowhxch/accelerated-jk.nvim' }
 
   -- easymotion
   use {
