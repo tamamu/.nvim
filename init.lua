@@ -42,6 +42,8 @@ require 'impatient'
 
 require 'plugins'
 
+vim.cmd[[colorscheme nordfox]]
+
 require('toggleterm').setup()
 
 
@@ -135,8 +137,8 @@ nnoremap('<C-s>', '<C-w>l')
 
 -- tab
 nnoremap('<leader>t', ':<C-u>tabnew<CR>')
-nnoremap('<C-S-h>', ':BufferPrevious<CR>', 'silent')
-nnoremap('<C-S-s>', ':BufferNext<CR>', 'silent')
+nnoremap('<M-h>', ':BufferPrevious<CR>', 'silent')
+nnoremap('<M-s>', ':BufferNext<CR>', 'silent')
 nnoremap('<C-p>', ':BufferPin<CR>', 'silent')
 
 -- ファイルツリー

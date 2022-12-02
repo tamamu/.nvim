@@ -179,10 +179,11 @@ return require('packer').startup({function()
   use {
     "EdenEast/nightfox.nvim",
     tag = "v1.0.0",
-    config = function()
-      vim.cmd('colorscheme nightfox')
-    end
   }
+  -- colorscheme: https://github.com/shaunsingh/moonlight.nvim
+  use 'shaunsingh/moonlight.nvim'
+  -- colorscheme: https://github.com/katawful/kat.nvim
+  use 'katawful/kat.nvim'
 
   -- wakatime: https://github.com/wakatime/vim-wakatime
   use 'wakatime/vim-wakatime'
