@@ -34,14 +34,13 @@ return require('packer').startup({function()
   -- show git mark on lines: https://github.com/lewis6991/gitsigns.nvim
   use {
     'lewis6991/gitsigns.nvim',
-    tag = 'release',
     config = function()
       require('gitsigns').setup()
     end
   }
 
   use {
-    'chentau/marks.nvim',
+    'chentoast/marks.nvim',
     config = function()
       require'marks'.setup{
         default_mappings = false,
@@ -121,13 +120,13 @@ return require('packer').startup({function()
   -- Find and Replace: https://github.com/brooth/far.vim
   use 'brooth/far.vim'
 
-  -- devicons: https://github.com/kyazdani42/nvim-web-devicons
-  use 'kyazdani42/nvim-web-devicons'
+  -- devicons: https://github.com/nvim-tree/nvim-web-devicons
+  use 'nvim-tree/nvim-web-devicons'
 
   -- status line: https://github.com/nvim-lualine/lualine.nvim
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   -- fancy notification: https://github.com/rcarriga/nvim-notify
@@ -143,6 +142,7 @@ return require('packer').startup({function()
   -- command palette: https://github.com/mrjones2014/legendary.nvim
   use {
     'mrjones2014/legendary.nvim',
+    tag = 'v2.1.0',
     config = function()
       require('legendary').setup()
     end
@@ -167,12 +167,12 @@ return require('packer').startup({function()
   -- use {
   --   'akinsho/bufferline.nvim',
   --   tag = "*",
-  --   requires = 'kyazdani42/nvim-web-devicons'
+  --   requires = 'nvim-tree/nvim-web-devicons'
   -- }
   -- tabline: https://github.com/romgrk/barbar.nvim
   use {
     'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    requires = {'nvim-web-devicons'}
   }
 
   -- colorscheme: https://github.com/EdenEast/nightfox.nvim
@@ -184,6 +184,8 @@ return require('packer').startup({function()
   use 'shaunsingh/moonlight.nvim'
   -- colorscheme: https://github.com/katawful/kat.nvim
   use 'katawful/kat.nvim'
+  -- colorscheme: https://github.com/catppuccin/nvim
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- wakatime: https://github.com/wakatime/vim-wakatime
   use 'wakatime/vim-wakatime'
@@ -229,10 +231,13 @@ return require('packer').startup({function()
     branch = 'v2.x',
     requires = {
       'nvim-lua/plenary.nvim',
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
     config = function()
+      vim.cmd([[
+        let g:neo_tree_remove_legacy_commands = 1
+      ]])
       require('neo-tree').setup {
         use_default_mappings = false,
         close_if_last_window = true,
@@ -305,7 +310,7 @@ return require('packer').startup({function()
   -- pretty diagnostics, quickfix, etc: https://github.com/folke/trouble.nvim
   use {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup {
         -- your configuration comes here
@@ -354,7 +359,12 @@ return require('packer').startup({function()
   }
 
   -- customizable finder: https://github.com/kevinhwang91/nvim-hlslens
-  use 'kevinhwang91/nvim-hlslens'
+  use {
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('hlslens').setup()
+    end
+  }
 
   -- scrollbar: https://github.com/dstein64/nvim-scrollview
   use {
@@ -412,7 +422,13 @@ return require('packer').startup({function()
   use 'haya14busa/vim-asterisk'
 
   -- locking a buffer to a window: https://github.com/stevearc/stickybuf.nvim
-  use 'stevearc/stickybuf.nvim'
+  use {
+    'stevearc/stickybuf.nvim',
+    config = function()
+        require('stickybuf').setup()
+        vim.g.no_stickybuf_init = true
+    end
+  }
 
   -- -- delete buffer without fix window layout: https://github.com/famiu/bufdelete.nvim
   -- use 'famiu/bufdelete.nvim'
