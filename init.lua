@@ -181,9 +181,8 @@ nnoremap('--', ':Twilight<cr>')
 nnoremap(':', '<cmd>FineCmdline<cr>')
 
 -- comment
---nnoremap('<sp>cc', '<Plug>(comment_toggle_current_linewise)')
-nnoremap('<leader>c<leader>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
-vnoremap('<leader>c<leader>', '<CMD>lua require("Comment.api").call("toggle_linewise_op")<CR>g@')
+nnoremap('<leader>c<leader>', '<Plug>(comment_toggle_linewise_current)')
+vnoremap('<leader>c<leader>', '<Plug>(comment_toggle_linewise_visual)')
 
 -- emoji selector
 inoremap('<C-e>', '<CMD>lua require"telescope.builtin".symbols{ sources = {"emoji"} }<CR>')

@@ -239,30 +239,34 @@ return require('packer').startup({function()
         let g:neo_tree_remove_legacy_commands = 1
       ]])
       require('neo-tree').setup {
-        use_default_mappings = false,
+        use_default_mappings = true,
         close_if_last_window = true,
         enable_git_status = true,
         mapping_options = {
           noremap = true,
           nowait = true,
         },
-        window = {
-          position = 'left',
-          mappings = {
-            ['<space>'] = {
-              'toggle_node',
-              nowait = false,
-            },
-            ['<2-LeftMouse>'] = 'open_tabnew',
-            ['<cr>'] = 'open',
-            ['a'] = 'add',
-            ['A'] = 'add_directory',
-            ['d'] = 'delete',
-            ['r'] = 'rename',
-            ['c'] = 'copy',
-            ['m'] = 'move',
-            ['R'] = 'refresh',
-            -- disable 't' by modifying ~/.local/share/nvim/site/pack/packer/start/neo-tree.nvim/lua/neo-tree/defaults.lua
+        filesystem = {
+          window = {
+            position = 'left',
+            mappings = {
+              ['<space>'] = {
+                'toggle_node',
+                nowait = false,
+              },
+              ['<2-LeftMouse>'] = 'open_tabnew',
+              ['<cr>'] = 'open',
+              ['a'] = 'add',
+              ['A'] = 'add_directory',
+              ['d'] = 'delete',
+              ['r'] = 'rename',
+              ['c'] = 'copy',
+              ['m'] = 'move',
+              ['R'] = 'refresh',
+              ['S'] = 'open_split',
+              ['s'] = 'open_vsplit',
+              -- disable 't' by modifying ~/.local/share/nvim/site/pack/packer/start/neo-tree.nvim/lua/neo-tree/defaults.lua
+            }
           }
         }
       }
