@@ -7,6 +7,22 @@ return require('packer').startup({function()
   -- startup time optimization: https://github.com/lewis6991/impatient.nvim
   use 'lewis6991/impatient.nvim'
 
+  -- command palette: https://github.com/mrjones2014/legendary.nvim
+  use {
+    'mrjones2014/legendary.nvim',
+    config = function()
+      require('legendary').setup{
+        extensions = {
+          nvim_tree = true,
+          which_key = {
+            auto_register = true,
+          },
+        }
+      }
+    end
+  }
+
+
   -- which key: https://github.com/folke/which-key.nvim
   use {
     "folke/which-key.nvim",
@@ -27,6 +43,69 @@ return require('packer').startup({function()
     config = function()
     end
   }
+
+  -- Toggle relative line number: https://github.com/cpea2506/relative-toggle.nvim
+  -- use {
+  --   'cpea2506/relative-toggle.nvim',
+  --   config = function()
+  --     require("relative-toggle").setup {
+  --       pattern = "*",
+  --       events = {
+  --           on = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave" },
+  --           off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter" },
+  --       },
+  --     }
+  --   end
+  -- }
+
+  -- -- Open a file from terminal in current session: https://github.com/willothy/flatten.nvim
+  -- use {
+  --   'willothy/flatten.nvim',
+  --   config = function()
+  --     require'flatten'.setup {
+  --       window = {
+  --           open = "alternate"
+  --       },
+  --       callbacks = {
+  --           post_open = function(bufnr, winnr, ft, is_blocking)
+  --               if is_blocking then
+  --                   -- Hide the terminal while it's blocking
+  --                   require("toggleterm").toggle(0)
+  --               else
+  --                   -- If it's a normal file, just switch to its window
+  --                   vim.api.nvim_set_current_win(winnr)
+  --               end
+  --
+  --               -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
+  --               -- If you just want the toggleable terminal integration, ignore this bit
+  --               if ft == "gitcommit" then
+  --                   vim.api.nvim_create_autocmd(
+  --                       "BufWritePost",
+  --                       {
+  --                           buffer = bufnr,
+  --                           once = true,
+  --                           callback = function()
+  --                               -- This is a bit of a hack, but if you run bufdelete immediately
+  --                               -- the shell can occasionally freeze
+  --                               vim.defer_fn(
+  --                                   function()
+  --                                       vim.api.nvim_buf_delete(bufnr, {})
+  --                                   end,
+  --                                   50
+  --                               )
+  --                           end
+  --                       }
+  --                   )
+  --               end
+  --           end,
+  --           block_end = function()
+  --               -- After blocking ends (for a git commit, etc), reopen the terminal
+  --               require("toggleterm").toggle(0)
+  --           end
+  --       }
+  --     }
+  --   end
+  -- }
 
   -- highlight trailing whitespace: https://github.com/bronson/vim-trailing-whitespace
   use 'bronson/vim-trailing-whitespace'
@@ -52,14 +131,10 @@ return require('packer').startup({function()
   use {
     'karb94/neoscroll.nvim',
     config = function()
-      local t = {}
-      t['<ScrollWheelUp>'] = {'scroll', {'-0.5', 'false', '100'}}
-      t['<ScrollWheelDown'] = {'scroll', {'0.5', 'false', '100'}}
-      require('neoscroll.config').set_mappings(t)
-      require('neoscroll').setup{
+      require('neoscroll').setup({
         mappings = {},
         cursor_scrolls_alone = false,
-      }
+      })
     end
   }
 
@@ -136,15 +211,6 @@ return require('packer').startup({function()
       require('notify').setup{
         stages = 'slide'
       }
-    end
-  }
-
-  -- command palette: https://github.com/mrjones2014/legendary.nvim
-  use {
-    'mrjones2014/legendary.nvim',
-    tag = 'v2.1.0',
-    config = function()
-      require('legendary').setup()
     end
   }
 
@@ -287,23 +353,25 @@ return require('packer').startup({function()
   use 'katawful/kat.nvim'
   -- colorscheme: https://github.com/catppuccin/nvim
   use { "catppuccin/nvim", as = "catppuccin" }
+  -- colorscheme: https://github.com/Alligator/accent.vim
+  use 'Alligator/accent.vim'
 
   -- wakatime: https://github.com/wakatime/vim-wakatime
   use 'wakatime/vim-wakatime'
 
-  -- auto session: https://github.com/rmagatti/auto-session
-  use {
-    'rmagatti/auto-session',
-    config = function()
-      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-      require('auto-session').setup {
-        log_level = 'info',
-        auto_session_suppress_dirs = {'~/'},
-	auto_session_allowed_dirs = {'~/Projects/'},
-	auto_session_use_git_branch = true,
-      }
-    end
-  }
+ --  -- auto session: https://github.com/rmagatti/auto-session
+ --  use {
+ --    'rmagatti/auto-session',
+ --    config = function()
+ --      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+ --      require('auto-session').setup {
+ --        log_level = 'info',
+ --        auto_session_suppress_dirs = {'~/'},
+	-- auto_session_allowed_dirs = {'~/Projects/'},
+	-- auto_session_use_git_branch = true,
+ --      }
+ --    end
+ --  }
 
   -- terminal utility: https://github.com/akinsho/toggleterm.nvim
   use {
@@ -584,11 +652,7 @@ return require('packer').startup({function()
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-        require("indent_blankline").setup {
-          -- for example, context is off by default, use this to turn it on
-          show_current_context = true,
-          show_current_context_start = true,
-        }
+        require("ibl").setup()
     end
   }
 

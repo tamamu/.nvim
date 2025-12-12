@@ -32,6 +32,7 @@ vim.g.line_number_interval_enable_at_startup = 1
 
 vim.cmd [[autocmd BufWritePost plugins.lua PackerCompile]]
 vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber]]
+vim.cmd [[autocmd BufLeave * setlocal nonumber norelativenumber]]
 ---- below settings blocks shade.nvim
 -- vim.cmd [[autocmd WinEnter * if &buftype == 'terminal' | setlocal nonumber norelativenumber]]
 -- vim.cmd [[autocmd WinLeave * if &buftype == 'terminal' | setlocal nonumber norelativenumber]]
@@ -44,6 +45,9 @@ require 'plugins'
 
 -- vim.cmd[[colorscheme nordfox]]
 vim.cmd.colorscheme "catppuccin"
+
+-- vim.g.accent_colour = 'magenta'
+-- vim.cmd.colorscheme "accent"
 
 require('toggleterm').setup()
 
@@ -73,6 +77,15 @@ noremap('l', ':HopChar1<CR>')
 --nnoremap('<ScrollWheelDown>', '<C-e>')
 nnoremap('<ScrollWheelLeft>', 'zl')
 nnoremap('<ScrollWheelRight>', 'zh')
+
+neoscroll = require('neoscroll')
+local t = {}
+t['<ScrollWheelUp>'] = function() neoscroll.scroll(-0.5, { move_cursor=false, duration=100 }) end;
+t['<ScrollWheelDown>'] = function() neoscroll.scroll(0.5, { move_cursor=false, duration=100 }) end;
+local modes = { 'n', 'v', 'x' }
+for key, func in pairs(t) do
+  vim.keymap.set(modes, key, func)
+end
 
 -- vim-visual-multi
 nnoremap('<C-d>', ':VMSearch!<cr>')
@@ -215,7 +228,7 @@ require('lualine').setup {
   options = {
     globalstatus = true,
   },
-  sections = {lualine_c = {require('auto-session-library').current_session_name}}
+  -- sections = {lualine_c = {require('auto-session-library').current_session_name}}
 }
 
 local home = vim.fn.expand("~/Internxt/zettelkasten")
